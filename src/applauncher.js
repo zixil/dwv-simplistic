@@ -16,7 +16,7 @@ dwv.browser.check();
 
 // initialise service worker
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         navigator.serviceWorker.register('./service-worker.js').then(function (registration) {
             // Registration was successful
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -30,18 +30,16 @@ if ('serviceWorker' in navigator) {
 // DOM ready?
 document.addEventListener("DOMContentLoaded", function (/*event*/) {
 
+    // initialise i18n
+    dwv.i18nInitialise("auto", "node_modules/dwv");
+
     // initialise the application
     dwvApp.init({
         "containerDivId": "dwv",
         "fitToWindow": true,
-        "gui":["tool"],
+        "gui": ["tool"],
         "tools": ["Scroll", "ZoomAndPan", "WindowLevel"],
         "isMobile": true
     });
     dwv.gui.appendResetHtml(dwvApp);
-    // activate tools on load end
-    // dwvApp.addEventListener('load-end', function (/*event*/) {
-    //     document.getElementById('tools').disabled = false;
-    //     document.getElementById('reset').disabled = false;
-    // });
 });
