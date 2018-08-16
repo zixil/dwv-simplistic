@@ -7,10 +7,10 @@ var dwvApp = new dwv.App();
 // start app function
 function startApp() {
     // translate page
-    dwv.i18nPage();
+    //dwv.i18nPage();
 
     // update legend
-    document.getElementById('legend').innerHTML = "Powered by dwv "+dwv.getVersion();
+    //document.getElementById('legend').innerHTML = "Powered by dwv "+dwv.getVersion();
     // initialise the application
     dwvApp.init({
         "containerDivId": "dwv",
@@ -32,6 +32,7 @@ dwv.image.decoderScripts = {
     "jpeg-baseline": "node_modules/dwv/decoders/pdfjs/decode-jpegbaseline.js"
 };
 
+/*
 // status flags
 var domContentLoaded = false;
 var i18nInitialised = false;
@@ -41,19 +42,24 @@ function launchApp() {
         startApp();
     }
 }
+
 // i18n ready?
 dwv.i18nOnInitialised( function () {
     i18nInitialised = true;
     launchApp();
 });
+*/
 
 // check browser support
 dwv.browser.check();
 // initialise i18n
-dwv.i18nInitialise("auto", "node_modules/dwv");
+/*dwv.i18nInitialise("auto", "node_modules/dwv");*/
 
 // DOM ready?
 document.addEventListener("DOMContentLoaded", function (/*event*/) {
+    /*
     domContentLoaded = true;
     launchApp();
+    */
+    startApp();
 });
